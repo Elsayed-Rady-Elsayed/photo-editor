@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Image Editor</title>
+    <link rel="stylesheet" href="style/bootstrap.min.css" />
+  </head>
+  <body class="bg-body-secondary">
+    <a href="" id="link"></a>
+    <header class="bg-success shadow-lg p-2">
+      <div
+        class="content container d-flex align-items-center justify-content-between w-100 h-100"
+      >
+        <div class="align-self-center text-light fw-bold">sayeditor</div>
+        <div class="btn-group">
+          <button
+            id="img-save"
+            class="btn btn-primary rounded-0"
+            onclick="saveImg()"
+          >
+            save
+          </button>
+          <button class="btn btn-danger rounded-0" onclick="resetValues()">
+            reset
+          </button>
+        </div>
+      </div>
+    </header>
+    <form action="" class="w-100 text-center p-3">
+      <div class="IfImgUploded mb-5">
+        <img src="" class="d-none" id="imgSrc" alt="" />
+
+        <canvas
+          class="img-fluid img-thumbnail p-2 w-100 object-fit-cover"
+          id="canvas"
+          height="0"
+        ></canvas>
+        <div class="container controls text-start fw-bold mt-3 text-capitalize">
+          <p class="">image controls</p>
+          <div class="ranges" id="img-controls">
+            <div class="row align-items-center my-3">
+              <div class="range w-50 col">
+                <label
+                  for="brightness"
+                  class="small opacity-75 form-label fw-lighter"
+                  >brightness</label
+                >
+                <input
+                  type="range"
+                  class="form-range"
+                  id="brightness"
+                  onchange="applyFilter()"
+                  value="100"
+                />
+              </div>
+              <div class="range w-50 col">
+                <label for="contrast" class="small opacity-75 fw-lighter"
+                  >contrast</label
+                >
+                <input
+                  type="range"
+                  class="form-range"
+                  id="contrast"
+                  onchange="applyFilter()"
+                  value="100"
+                />
+              </div>
+            </div>
+            <div class="row align-items-center my-3">
+              <div class="range w-50 col">
+                <label
+                  for="grayscale"
+                  class="form-label small opacity-75 fw-lighter"
+                  >grayscale</label
+                >
+                <input
+                  type="range"
+                  class="form-range"
+                  id="grayscale"
+                  onchange="applyFilter()"
+                  value="0"
+                />
+              </div>
+              <div class="range w-50 col">
+                <label
+                  for="saturation"
+                  class="form-label small opacity-75 fw-lighter"
+                  >saturation</label
+                >
+                <input
+                  type="range"
+                  class="form-range"
+                  id="saturation"
+                  onchange="applyFilter()"
+                  value="100"
+                />
+              </div>
+            </div>
+            <div class="row my-3">
+              <div class="range w-50 col">
+                <label
+                  for="sepia"
+                  class="form-label opacity-75 small fw-lighter"
+                  >sepia</label
+                >
+                <input
+                  type="range"
+                  class="form-range"
+                  id="sepia"
+                  onchange="applyFilter()"
+                  value="0"
+                />
+              </div>
+              <div class="range w-50 col">
+                <label for="hue" class="form-label small opacity-75 fw-lighter"
+                  >hue</label
+                >
+                <input
+                  type="range"
+                  class="form-range"
+                  id="hue"
+                  onchange="applyFilter()"
+                  value="0"
+                />
+              </div>
+            </div>
+          </div>
+          <div class="presetFilters" id="imgFilter">
+            <div class="my-2">Preset Filters</div>
+            <div
+              class="btn btn-success text-uppercase m-1"
+              onclick="brightenFilter()"
+            >
+              brighten
+            </div>
+            <div
+              class="btn btn-success text-uppercase m-1"
+              onclick="bwFilter()"
+            >
+              Black and White
+            </div>
+            <div
+              class="btn btn-success text-uppercase m-1"
+              onclick="funkyFilter()"
+            >
+              Funky
+            </div>
+            <div
+              class="btn btn-success text-uppercase m-1"
+              onclick="vintageFilter()"
+            >
+              Vintage
+            </div>
+          </div>
+        </div>
+      </div>
+      <p
+        id="helpText"
+        class="is-invalid text-bg-success rounded rounded-3 shadow-sm mb-3"
+      >
+        please uplode photo
+      </p>
+      <input
+        type="file"
+        class="form-control"
+        name=""
+        id="uplodeImg"
+        onchange="UplodeImg(event)"
+      />
+    </form>
+    <script src="master.js"></script>
+  </body>
+</html>
